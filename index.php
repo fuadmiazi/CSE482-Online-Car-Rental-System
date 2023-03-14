@@ -33,7 +33,12 @@
                     </div>
                     <div class="input-field">
                         <a href="home.php"></a>
-                        <input type="submit" class="submit" value="Login">
+                        <input type="submit" onClick="myFunction()" class="submit" value="Login">
+                        <script>
+                            function myFunction() {
+                            window.location.href="home.php";  
+                            }
+                        </script>
                         
                     </div>
                     <div class="signin">

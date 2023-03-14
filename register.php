@@ -44,6 +44,7 @@
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field">
+                    <a href="home.php"></a>
                         <input type="submit" class="submit" value="Sign Up">
                         
                     </div>
