@@ -47,7 +47,7 @@ img{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.text p{
+/* .text p{
     color: #fff;
     font-size: 18px;
 
@@ -55,7 +55,7 @@ img{
 i{
     font-weight: 400;
     font-size: 15px;
-}
+} */
 .right{
     display: flex;
     justify-content: center;
@@ -71,7 +71,7 @@ i{
 .input-box header{
     font-weight: 700;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 150px;
 }
 
 .input-field{

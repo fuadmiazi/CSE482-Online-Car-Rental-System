@@ -21,8 +21,8 @@
             </div>
             <div class="col-md-6 right">
                 <div class="input-box">
-                    <img src="https://t3.ftcdn.net/jpg/03/58/16/06/360_F_358160626_45fJ6k9AhrZzSyRedvemX3ofxWEUD1r7.jpg" alt="">
-                    <header>Create Account</header>
+                    
+                    <header><img src="https://t3.ftcdn.net/jpg/03/58/16/06/360_F_358160626_45fJ6k9AhrZzSyRedvemX3ofxWEUD1r7.jpg" alt=""></header>
                     <div class="input-field">
                         <input type="name" class="input" id="name" required autocomplete="off">
                         <label for="name">Name</label>
