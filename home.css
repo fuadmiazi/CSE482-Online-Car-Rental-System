@@ -1,0 +1,13 @@
+body{
+    background-image: url("img/background4.jpg");    
+}
+.home-page-banner{
+    text-align: center;
+    color: aliceblue;
+    font-style: italic;
+}
+
+.home-page-banner h1{
+    padding-top: 300px;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
