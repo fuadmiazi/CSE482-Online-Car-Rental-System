@@ -6,6 +6,7 @@
     <title>Car Rental Service || Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="img/logo1.png" type="image/x-icon">
   </head>
   <body>
 
@@ -22,7 +23,7 @@
             <div class="col-md-6 right">
                 <div class="input-box">
                     
-                    <header><img src="https://t3.ftcdn.net/jpg/03/58/16/06/360_F_358160626_45fJ6k9AhrZzSyRedvemX3ofxWEUD1r7.jpg" alt=""></header>
+                    <header><img src="img/logo1.png" alt=""></header>
                     <div class="input-field">
                         <input type="name" class="input" id="name" required autocomplete="off">
                         <label for="name">Name</label>

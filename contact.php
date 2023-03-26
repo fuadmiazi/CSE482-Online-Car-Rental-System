@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental Service || Home</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="contact.css">
     <link rel="shortcut icon" href="img/logo1.png" type="image/x-icon">
 </head>
 <body>
-    
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.php"><img class="logo" src="img/logo1.png" alt=""></a>
@@ -34,7 +34,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-            <li><a class="dropdown-item" href="cars.php">Bookings</a></li>
+            <li><a class="dropdown-item" href="#">Bookings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php">Log Out</a></li>
           </ul>
@@ -48,13 +48,24 @@
   </div>
 </nav>
 
-<div class="home-page-banner">
-    <h1>Find a Car of Your Own Comfort</h1>
-    <button type="button" class="btn btn-info"><a class="anchor" href="cars.php">Browse Cars</a></button>
+<h2>Contact Us</h2>
+<div class="container">
+  <form action="action_page.php">
+
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="name" placeholder="Your name..">
+
+    <label for="lname">Email</label>
+    <input type="text" id="lname" name="email" placeholder="Your email..">
+
+    <label for="subject">Message</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
 </div>
-
-
-
+    
 
 
 
