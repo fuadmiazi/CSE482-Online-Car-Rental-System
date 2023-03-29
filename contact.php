@@ -34,7 +34,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Bookings</a></li>
+            <li><a class="dropdown-item" href="cars.php">Bookings</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php">Log Out</a></li>
           </ul>
