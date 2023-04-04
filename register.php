@@ -1,3 +1,10 @@
+<?php
+
+include('server.php')
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,12 +31,13 @@
                 <div class="input-box">
                     
                     <header><img src="img/logo1.png" alt=""></header>
+                    <form method="POST" action="register.php">
                     <div class="input-field">
-                        <input type="name" class="input" id="name" required autocomplete="off">
+                        <input type="name" name="name" class="input" id="name" required autocomplete="off">
                         <label for="name">Name</label>
                     </div>
                     <div class="input-field">
-                        <input type="number" class="input" id="name" required autocomplete="off">
+                        <input type="number" name="phone" class="input" id="name" required autocomplete="off">
                         <label for="name">Phone Number</label>
                     </div>
                     <!-- <div class="input-field">
@@ -37,18 +45,17 @@
                         <label for="address">Address</label>
                     </div> -->
                     <div class="input-field">
-                        <input type="text" class="input" id="email" required autocomplete="off">
+                        <input type="text" name="email" class="input" id="email" required autocomplete="off">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="input" id="password" required>
+                        <input type="password" name="password" class="input" id="password" required>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field">
-                    <a href="home.php"></a>
-                        <input type="submit" class="submit" value="Sign Up">
-                        
+                        <input type="submit" class="submit" name="reg_user" value="Sign Up">
                     </div>
+                    </form>
                     <div class="signin">
                         <span>Already Have an account? <a href="index.php">Login Here</a></span>
                     </div>

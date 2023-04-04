@@ -1,3 +1,9 @@
+<?php
+
+include('server.php')
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,16 +31,19 @@
                 <!-- <img src="https://t3.ftcdn.net/jpg/03/58/16/06/360_F_358160626_45fJ6k9AhrZzSyRedvemX3ofxWEUD1r7.jpg" class="img-fluid" alt=""> -->
                     <header><img src="img/logo1.png" class="img-fluid" alt=""></header>
                     <form method="POST" action="index.php">
+
+                    <?php include('errors.php'); ?>
+
                     <div class="input-field">
-                        <input type="text" class="input" id="email" required autocomplete="off">
+                        <input type="text" name="email" class="input" id="email" required autocomplete="off">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="input" id="password" required>
+                        <input type="password" name="password" class="input" id="password" required>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field">
-                        <input type="submit" class="submit" value="Login">
+                        <input type="submit" class="submit" name="login_user" value="Login">
                     </div>
                     </form>
                     <div class="signin">
