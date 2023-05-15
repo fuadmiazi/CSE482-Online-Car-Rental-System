@@ -67,7 +67,9 @@ if (isset($_POST['login_user'])) {
           $_SESSION['success'] = "You are now logged in";
           header('location: home.php');
         }else {
-            array_push($errors, "Wrong email or password combination");
+            //array_push($errors, "Wrong email or password combination");
+            //header('location: index.php');
+            echo "Wrong email or password combination";
         }
     }
   }

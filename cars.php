@@ -1,3 +1,37 @@
+<?php 
+
+session_start();
+
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    header("location: index.php");
+}
+
+
+$conn = mysqli_connect("localhost", "root", "", "rent");
+$sql1 = "SELECT * FROM cars where id=1";
+$result1 = $conn->query($sql1);
+$data1 = $result1->fetch_assoc();
+
+$sql2 = "SELECT * FROM cars where id=2";
+$result2 = $conn->query($sql2);
+$data2 = $result2->fetch_assoc();
+
+$sql3 = "SELECT * FROM cars where id=3";
+$result3 = $conn->query($sql3);
+$data3 = $result3->fetch_assoc();
+
+$sql4 = "SELECT * FROM cars where id=4";
+$result4 = $conn->query($sql4);
+$data4 = $result4->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +63,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Fuad Hasan
+          <?php echo $_SESSION['name']; ?>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
@@ -52,16 +86,16 @@
   <div class="row mt-5">
     <div class="col-sm-4">
       <div class="card">
-    <img src="img/background3.jpg" class="card-img-top" width="100%">
+    <img src="<?php echo $data1["car_image"]?>" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
-        <small class="">Toyota Noah</small>
-        <h6>&#2547;5000</h6>
+        <small class=""><?php echo $data1["car_name"] ?></small>
+        <h6>&#2547;<?php echo $data1["car_price"] ?></h6>
       </div>
       <hr class="mt-2 mx-3">
       <div class="d-flex flex-row justify-content-between px-3 pb-4">
-        <div class="d-flex flex-column"><span class="text-muted">Fuel Efficiency</span><small class="text-muted">L/100KM&ast;</small></div>
-        <div class="d-flex flex-column"><h5 class="mb-0">8.5/7.1</h5><small class="text-muted text-right">(city/Hwy)</small></div>
+        <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
+        <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
       </div>
       
       <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
@@ -74,13 +108,31 @@
     <img src="img/background7.jpg" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
-      <small class="">Toyota X Corolla</small>
-        <h6>&#2547;2000</h6>
+      <small class=""><?php echo $data2["car_name"] ?></small>
+        <h6>&#2547;<?php echo $data2["car_price"] ?></h6>
       </div>
       <hr class="mt-2 mx-3">
       <div class="d-flex flex-row justify-content-between px-3 pb-4">
-        <div class="d-flex flex-column"><span class="text-muted">Fuel Efficiency</span><small class="text-muted">L/100KM&ast;</small></div>
-        <div class="d-flex flex-column"><h5 class="mb-0">8.5/7.1</h5><small class="text-muted text-right">(city/Hwy)</small></div>
+        <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
+        <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
+      </div>
+      
+      <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+    </div>
+  </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+    <img src="img/background9.jpg" class="card-img-top" width="100%">
+    <div class="card-body pt-0 px-0">
+      <div class="d-flex flex-row justify-content-between mb-0 px-3">
+      <small class=""><?php echo $data3["car_name"] ?></small>
+        <h6>&#2547;<?php echo $data3["car_price"] ?></h6>
+      </div>
+      <hr class="mt-2 mx-3">
+      <div class="d-flex flex-row justify-content-between px-3 pb-4">
+        <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
+        <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
       </div>
       
       <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
@@ -92,13 +144,13 @@
     <img src="img/background8.jpg" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
-      <small class="">Toyota Prius</small>
-        <h6>&#2547;3500</h6>
+      <small class=""><?php echo $data4["car_name"] ?></small>
+        <h6>&#2547;<?php echo $data4["car_price"] ?></h6>
       </div>
       <hr class="mt-2 mx-3">
       <div class="d-flex flex-row justify-content-between px-3 pb-4">
-        <div class="d-flex flex-column"><span class="text-muted">Fuel Efficiency</span><small class="text-muted">L/100KM&ast;</small></div>
-        <div class="d-flex flex-column"><h5 class="mb-0">8.5/7.1</h5><small class="text-muted text-right">(city/Hwy)</small></div>
+        <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
+        <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
       </div>
       
       <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>

@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +43,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Fuad Hasan
+          <?php echo $_SESSION['name']; ?>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
@@ -49,9 +63,9 @@
 
 <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
     <div class="card p-4">
-        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"><img src="https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584__340.png" height="100" width="100" /></button> <span class="name mt-3">Fuad Hasan</span>
-            <p>Email: fuad.hasan.1997@gmail.com</p>
-            <p>Phone: 01234567891</p>
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"><img src="https://cdn.pixabay.com/photo/2013/07/13/10/07/man-156584__340.png" height="100" width="100" /></button> <span class="name mt-3"><?php echo $_SESSION['name']; ?></span>
+            <p>Email: <?php echo $_SESSION['email']; ?></p>
+            <p>Phone: +880<?php echo $_SESSION['phone']; ?></p>
              <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
              
         </div>

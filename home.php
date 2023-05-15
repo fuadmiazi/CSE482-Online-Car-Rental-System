@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+//   if (!isset($_SESSION['name'])) {
+//   	$_SESSION['msg'] = "You must log in first";
+//   	header('location: login.php');
+//   }
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['name']);
+    header("location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +44,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Fuad Hasan
+          <?php echo $_SESSION['name']; ?>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
