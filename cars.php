@@ -12,23 +12,38 @@ if (isset($_GET['logout'])) {
     header("location: index.php");
 }
 
+$name= $_SESSION['name'];
+
 
 $conn = mysqli_connect("localhost", "root", "", "rent");
+
 $sql1 = "SELECT * FROM cars where id=1";
 $result1 = $conn->query($sql1);
 $data1 = $result1->fetch_assoc();
+$car_image1 = $data1['car_image'];
+$car_name1 = $data1['car_name'];
+$car_price1 = $data1['car_price'];
 
 $sql2 = "SELECT * FROM cars where id=2";
 $result2 = $conn->query($sql2);
 $data2 = $result2->fetch_assoc();
+$car_image2 = $data2['car_image'];
+$car_name2 = $data2['car_name'];
+$car_price2 = $data2['car_price'];
 
 $sql3 = "SELECT * FROM cars where id=3";
 $result3 = $conn->query($sql3);
 $data3 = $result3->fetch_assoc();
+$car_image3 = $data3['car_image'];
+$car_name3 = $data3['car_name'];
+$car_price3 = $data3['car_price'];
 
 $sql4 = "SELECT * FROM cars where id=4";
 $result4 = $conn->query($sql4);
 $data4 = $result4->fetch_assoc();
+$car_image4 = $data4['car_image'];
+$car_name4 = $data4['car_name'];
+$car_price4 = $data4['car_price'];
 
 ?>
 
@@ -86,26 +101,58 @@ $data4 = $result4->fetch_assoc();
   <div class="row mt-5">
     <div class="col-sm-4">
       <div class="card">
-    <img src="<?php echo $data1["car_image"]?>" class="card-img-top" width="100%">
-    <div class="card-body pt-0 px-0">
-      <div class="d-flex flex-row justify-content-between mb-0 px-3">
-        <small class=""><?php echo $data1["car_name"] ?></small>
-        <h6>&#2547;<?php echo $data1["car_price"] ?></h6>
-      </div>
-      <hr class="mt-2 mx-3">
-      <div class="d-flex flex-row justify-content-between px-3 pb-4">
-        <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
-        <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
-      </div>
+        <img src="<?php echo $car_image1 ?>" class="card-img-top" width="100%">
+        <div class="card-body pt-0 px-0">
+          <div class="d-flex flex-row justify-content-between mb-0 px-3">
+            <small class=""><?php echo $car_name1 ?></small>
+              <h6>&#2547;<?php echo $car_price1 ?></h6>
+          </div>
+          <hr class="mt-2 mx-3">
+        <div class="d-flex flex-row justify-content-between px-3 pb-4">
+
+          <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
+          <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
+        </div>
+
+      <?php 
       
-      <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+      if(isset($_POST['book1'])){
+        $sql5 = "INSERT INTO `cart` (customer_name, car_name, car_price) SELECT ,'$name','$car_name1', '$car_price1'";
+        $result1 = $conn->query($sql5);
+        if($result1){
+          $_SESSION['message'] = "Your car is booked successfully";
+        }
+
+        else {
+          $_SESSION['message'] = "Booking failed";
+        }
+      }
+      
+      
+      ?>
+      <form class="form" action="cars.php">
+      <div class="mx-3 mt-3 mb-2"><button type="submit" onClick="myFunction()" name="book1" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+      <script>
+        function myFunction(){
+          alert("Booking successfull");
+        }
+      </script>
+      <div class="alert alert-error"><? $_SESSION['message'] ?></div>
     </div>
+      </form>
   </div>
-  
-    </div>
+</div>
+
+
+
+
+
+
+
+
     <div class="col-sm-4">
       <div class="card">
-    <img src="img/background7.jpg" class="card-img-top" width="100%">
+    <img src="<?php echo $car_image2 ?>" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
       <small class=""><?php echo $data2["car_name"] ?></small>
@@ -121,9 +168,12 @@ $data4 = $result4->fetch_assoc();
     </div>
   </div>
     </div>
+
+
+
     <div class="col-sm-4">
       <div class="card">
-    <img src="img/background9.jpg" class="card-img-top" width="100%">
+    <img src="<?php echo $car_image3 ?>" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
       <small class=""><?php echo $data3["car_name"] ?></small>
@@ -135,13 +185,40 @@ $data4 = $result4->fetch_assoc();
         <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
       </div>
       
-      <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+        <?php 
+      
+      if(isset($_POST['book1'])){
+        $sql5 = "INSERT INTO `cart` (customer_name, car_name, car_price) SELECT ,'$name','$car_name1', '$car_price1'";
+        $result1 = $conn->query($sql5);
+        if($result1){
+          $_SESSION['message'] = "Your car is booked successfully";
+        }
+
+        else {
+          $_SESSION['message'] = "Booking failed";
+        }
+      }
+      
+      
+      ?>
+      <form class="form" action="cars.php">
+      <div class="mx-3 mt-3 mb-2"><button type="submit" onClick="myFunction()" name="book1" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+      <script>
+        function myFunction(){
+          alert("Booking successfull");
+        }
+      </script>
+      <div class="alert alert-error"><? $_SESSION['message'] ?></div>
+      </div>
+      
+      
     </div>
   </div>
-    </div>
+
+    
   <div class="col-sm-4">
     <div class="card">
-    <img src="img/background8.jpg" class="card-img-top" width="100%">
+    <img src="<?php echo $car_image4 ?>" class="card-img-top" width="100%">
     <div class="card-body pt-0 px-0">
       <div class="d-flex flex-row justify-content-between mb-0 px-3">
       <small class=""><?php echo $data4["car_name"] ?></small>
@@ -151,13 +228,34 @@ $data4 = $result4->fetch_assoc();
       <div class="d-flex flex-row justify-content-between px-3 pb-4">
         <div class="d-flex flex-column"><span class="text-muted"></span><small class="text-muted"></small></div>
         <div class="d-flex flex-column"><h5 class="mb-0"></h5><small class="text-muted text-right"></small></div>
-      </div>
+        <?php 
       
-      <div class="mx-3 mt-3 mb-2"><button type="button" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
-    </div>
-  </div>
-    </div>
-  
+      if(isset($_POST['book1'])){
+        $sql5 = "INSERT INTO `cart` (customer_name, car_name, car_price) SELECT ,'$name','$car_name1', '$car_price1'";
+        $result1 = $conn->query($sql5);
+        if($result1){
+          $_SESSION['message'] = "Your car is booked successfully";
+        }
+
+        else {
+          $_SESSION['message'] = "Booking failed";
+        }
+      }
+      
+      
+      ?>
+      <form class="form" action="cars.php">
+      <div class="mx-3 mt-3 mb-2"><button type="submit" onClick="myFunction()" name="book1" class="btn btn-danger btn-block"><small>Book Now</small></button></div>
+      <script>
+        function myFunction(){
+          alert("Booking successfull");
+        }
+      </script>
+      <div class="alert alert-error"><? $_SESSION['message'] ?></div>
+      </div>
+
+      
+      
   </div>
 </div>
 
